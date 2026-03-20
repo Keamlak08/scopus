@@ -1,3 +1,42 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+/* design tokens */
+@theme {
+  /* fonts */
+  --font-display: var(--font-outfit), sans-serif;
+  --font-body:    var(--font-manrope), sans-serif;
+  --font-mono:    "JetBrains Mono", monospace;
+
+  /* backgrounds */
+  --color-bg-base:    #08060f;
+  --color-bg-surface: #0e0b1a;
+  --color-bg-raised:  #150f2a;
+
+  /* borders */
+  --color-border-dim:    #1e1640;
+  --color-border-base:   #2d2060;
+  --color-border-bright: #4a3a8a;
+
+  /* accent purple */
+  --color-accent-base:  #a78bfa;
+  --color-accent-light: #c4b0ff;
+  --color-accent-dim:   #7c5cbf;
+  --color-accent-glow:  #6d4aff;
+
+  /* text */
+  --color-text-base:   #f0e6ff;
+  --color-text-muted:  #9d8ec0;
+  --color-text-subtle: #4a3d6b;
+}
+
+/* base styles applied to everything */
+@layer base {
+  body {
+    @apply bg-bg-base text-text-base font-body;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
