@@ -1,42 +1,81 @@
 @import "tailwindcss";
 
-/* design tokens */
+/* ── Phantom Sans — Hack Club brand font ── */
+@font-face {
+  font-family: 'Phantom Sans';
+  src:
+    url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Regular.woff2') format('woff2'),
+    url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Regular.woff')  format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Phantom Sans';
+  src:
+    url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Italic.woff2') format('woff2'),
+    url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Italic.woff')  format('woff');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Phantom Sans';
+  src:
+    url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Bold.woff2') format('woff2'),
+    url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Bold.woff')  format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
-  /* fonts */
-  --font-display: var(--font-outfit), sans-serif;
-  --font-body:    var(--font-manrope), sans-serif;
-  --font-mono:    "JetBrains Mono", monospace;
+  /* ── Typography ── */
+  --font-sans:    'Phantom Sans', system-ui, sans-serif;
+  --font-display: 'Phantom Sans', system-ui, sans-serif;
+  --font-body:    'Phantom Sans', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', 'Fira Code', monospace;
 
-  /* backgrounds */
-  --color-bg-base:    #08060f;
-  --color-bg-surface: #0e0b1a;
-  --color-bg-raised:  #150f2a;
+  /* ── Color tokens ── */
+  --color-bg-base:      #08060f;   /* page background */
+  --color-bg-surface:   #0e0b1a;   /* cards, panels */
+  --color-bg-raised:    #150f2a;   /* elevated surfaces */
 
-  /* borders */
-  --color-border-dim:    #1e1640;
-  --color-border-base:   #2d2060;
-  --color-border-bright: #4a3a8a;
+  --color-border-dim:   #1e1640;
+  --color-border-base:  #2d2060;
+  --color-border-bright:#4a3a8a;
 
-  /* accent purple */
-  --color-accent-base:  #a78bfa;
+  --color-accent:       #a78bfa;   /* primary purple — matches Hack Club purple */
   --color-accent-light: #c4b0ff;
   --color-accent-dim:   #7c5cbf;
   --color-accent-glow:  #6d4aff;
 
-  /* text */
+  /* Hack Club brand colors */
+  --color-hc-red:    #ec3750;
+  --color-hc-orange: #ff8c37;
+  --color-hc-green:  #33d6a6;
+
   --color-text-base:   #f0e6ff;
   --color-text-muted:  #9d8ec0;
   --color-text-subtle: #4a3d6b;
 }
 
-/* base styles applied to everything */
 @layer base {
+  /* Base Template */
   body {
-    @apply bg-bg-base text-text-base font-body;
+    background-color: var(--color-bg-base);
+    color: var(--color-text-base);
+    font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
   }
+}
 
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-display;
-  }
+a[data-active="false"]:hover {
+  color: var(--color-accent-light) !important;
+  background: rgba(167, 139, 250, 0.06) !important;
+}
+
+/* button glow on hover */
+a[href="/rsvp"]:hover {
+  box-shadow: 0 4px 18px rgba(118, 24, 196, 0.35);
 }
